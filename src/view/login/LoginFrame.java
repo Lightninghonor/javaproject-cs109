@@ -4,7 +4,7 @@ import model.MapModel;
 import utils.ImageLoader;
 import view.FrameUtil;
 import view.game.GameFrame;
-import view.user.LeaderboardFrame;
+import view.user.RankingFrame;
 import view.user.User;
 import view.user.UserManager;
 
@@ -164,18 +164,16 @@ public class LoginFrame extends JFrame {
                         User user = userManager.getUser(username.getText());
                         user.setGuest(false);
                         MapModel mapModel = new MapModel(new int[][]{
-                                {3, 4, 4, 3},
-                                {3, 4, 4, 3},
-                                {3, 0, 0, 3},
-                                {3, 2, 2, 3},
-                                {1, 1, 1, 1},
+                                {2, 2, 3, 3},
+                                {1, 1, 3, 3},
+                                {1, 0, 4, 4},
+                                {1, 0, 4, 4},
 
                         },new int[][]{
-                                {3, 4, 4, 3},
-                                {3, 4, 4, 3},
-                                {3, 0, 0, 3},
-                                {3, 2, 2, 3},
-                                {1, 1, 1, 1},
+                                {2, 2, 3, 3},
+                                {1, 1, 3, 3},
+                                {1, 0, 4, 4},
+                                {1, 0, 4, 4},
 
                         });
                         GameFrame gameFrame = new GameFrame(600, 450, mapModel,"ranking");
@@ -274,8 +272,8 @@ public class LoginFrame extends JFrame {
         rankingBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LeaderboardFrame frame = new LeaderboardFrame(userManager);
-                frame.setVisible(true);
+                RankingFrame rankingFrame = new RankingFrame();
+                rankingFrame.setVisible(true);
             }
         });
 

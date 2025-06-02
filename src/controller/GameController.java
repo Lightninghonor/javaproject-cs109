@@ -5,9 +5,12 @@ import model.MapModel;
 import view.game.BoxComponent;
 import view.game.GameFrame;
 import view.game.GamePanel;
+import view.user.PlayerRanking;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Stack;
 
 /**
@@ -115,6 +118,7 @@ public class GameController {
         if (caoCaoAtExit) {
             JOptionPane.showMessageDialog(view, "Victory!\nMoves: " + view.getSteps() + "\nTime: " + frame.seconds + "s", "Success", JOptionPane.INFORMATION_MESSAGE);
             frame.stopTimer();  // 停止计时
+            if(frame.mode == "ranking")savePlayerRanking(frame.getName(), view.getSteps(), frame.seconds);
         }
     }
     // 重新开始游戏时重置计时器的代码
@@ -127,6 +131,18 @@ public class GameController {
         isStart = false;
         frame.resetTimer();
         view.stepLabel.setText("Step: 0");
+    }
 
+    // 在胜利时保存数据到文件
+    public void savePlayerRanking(String username, int steps, int time) {
+        String filePath = "ranking_data.ser"; // 排名数据文件路径
+        PlayerRanking newRanking = new PlayerRanking(username, steps, time);
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath, true))) {
+            oos.writeObject(newRanking);
+            System.out.println("Player ranking saved successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
