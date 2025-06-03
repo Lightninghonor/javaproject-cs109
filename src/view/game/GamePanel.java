@@ -11,7 +11,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GamePanel extends ListenerPanel {
+public class GamePanel extends ListenerPanel1 {
     public List<BoxComponent> boxes;       // 存储所有方块组件
     private MapModel model;                 // 关联的棋盘模型
     private GameController controller;      // 关联的游戏控制器
@@ -21,6 +21,7 @@ public class GamePanel extends ListenerPanel {
     private BoxComponent selectedBox;
     // 构造函数：初始化面板和棋盘
     public GamePanel(MapModel model) {
+        System.setProperty("javax.imageio.iiop.allowInvalidICCProfile", "true");
         // 主动请求焦点
         boxes = new ArrayList<>();
         this.setVisible(true);
@@ -31,7 +32,9 @@ public class GamePanel extends ListenerPanel {
         this.model = model;
         this.selectedBox = null;
         initialGame();  // 初始化游戏界面
-        setupKeyListener();
+        new Thread(() -> {
+            setupKeyListener();
+        }).start();
         setFocusable(true);          // 启用焦点
         requestFocusInWindow();
 //        addFocusListener(new FocusAdapter() {
@@ -44,6 +47,9 @@ public class GamePanel extends ListenerPanel {
 
     // 新增方法，设置键盘监听器
     public void setupKeyListener() {
+        new Thread(() -> {
+
+
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -77,6 +83,7 @@ public class GamePanel extends ListenerPanel {
                 }
             }
         });
+        }).start();
     }
 
     public void updateBoxPosition(int row, int col, int width, int height, Direction direction) {

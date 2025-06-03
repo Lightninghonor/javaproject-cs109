@@ -35,6 +35,7 @@ public class GameFrame extends JFrame {
     private int timeLimit = 300;
 
     public GameFrame(int width, int height, MapModel mapModel,String mode) {
+        System.setProperty("javax.imageio.iiop.allowInvalidICCProfile", "true");
         this.setTitle("华容道1.2");
         this.setLayout(null);
         this.setSize(width, height);

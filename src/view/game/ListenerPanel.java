@@ -5,13 +5,18 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
+
 /**
  * This class is only to enable key events.
  */
 public abstract class ListenerPanel extends JPanel {
     public ListenerPanel() {
-        enableEvents(AWTEvent.KEY_EVENT_MASK);
-        enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+//        new Thread(() -> {
+//            enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+//        }).start();
+        new Thread(() -> {
+            enableEvents(AWTEvent.KEY_EVENT_MASK);
+        }).start();
         this.setFocusable(true);
     }
 
@@ -30,10 +35,10 @@ public abstract class ListenerPanel extends JPanel {
     }
     @Override
     protected void processMouseEvent(MouseEvent e) {
-        super.processMouseEvent(e);
-        if (e.getID() == MouseEvent.MOUSE_CLICKED) {
-            doMouseClick(e.getPoint());
-        }
+//        super.processMouseEvent(e);
+//        if (e.getID() == MouseEvent.MOUSE_CLICKED) {
+//            doMouseClick(e.getPoint());
+//        }
     }
     public abstract void doMouseClick(Point point);
 

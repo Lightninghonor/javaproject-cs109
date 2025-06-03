@@ -208,6 +208,7 @@ public class MapModel {
 
     // 构造函数：初始化棋盘矩阵
     public MapModel(int[][] matrix,int[][] initialmatrix) {
+        System.setProperty("javax.imageio.iiop.allowInvalidICCProfile", "true");
         this.matrix = matrix;
         this.initialmatrix=initialmatrix;
     }
