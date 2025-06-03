@@ -3,6 +3,7 @@ import view.login.LoginFrame;
 import javax.swing.*;
 
 public class Main {
+    //test
     public static void main(String[] args) {
         System.setProperty("javax.imageio.iiop.allowInvalidICCProfile", "true");
         SwingUtilities.invokeLater(() -> {
