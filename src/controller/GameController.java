@@ -109,7 +109,7 @@ public class GameController {
                 int row = box.getRow();
                 int col = box.getCol();
                 // 修改胜利条件判断逻辑
-                if (row==2&&col==1) {
+                if (row==3&&col==1) {
                     caoCaoAtExit = true;
                     break;
                 }

@@ -2,9 +2,14 @@ package model;
 /**
  * This class is to record the map of one game. For example:
  */
+import java.awt.*;
 import java.util.*;
+import java.util.List;
+
 import controller.MoveRecord;
 import view.game.BoxComponent;
+
+import javax.swing.*;
 
 /*边界处理和三种方块移动具体实现*/
 public class MapModel {
@@ -108,13 +113,13 @@ public class MapModel {
                             if (isValidMove(row, col, width, height, direction,currentState.board)) {
                                 int[][] newBoard = currentState.copyBoard(currentState.board);
                                 moveBlock( row, col, width, height, direction,newBoard);
-                                System.out.printf("move from %d %d\n",row ,col);
-                                for(int i=0;i<4;i++){
-                                    for(int j=0;j<4;j++){
-                                        System.out.printf("%d ",newBoard[i][j]);
-                                    }
-                                    System.out.println();
-                                }
+//                                System.out.printf("move from %d %d\n",row ,col);
+//                                for(int i=0;i<4;i++){
+//                                    for(int j=0;j<4;j++){
+//                                        System.out.printf("%d ",newBoard[i][j]);
+//                                    }
+//                                    System.out.println();
+//                                }
                                 String newBoardString = boardToString(newBoard);
                                 if (closedSet.contains(newBoardString)) {
                                     continue;
@@ -209,8 +214,15 @@ public class MapModel {
     // 构造函数：初始化棋盘矩阵
     public MapModel(int[][] matrix,int[][] initialmatrix) {
         System.setProperty("javax.imageio.iiop.allowInvalidICCProfile", "true");
+        //if(matrix.equals(new int[][]{{3, 0, 3, 3}, {3, 0, 3, 3}, {1, 1, 2, 2}, {1, 3, 4, 4}, {1, 3, 4, 4},}) || matrix.equals(new int[][]{{3, 3, 3, 3}, {3, 3, 3, 3}, {1, 4, 4, 1}, {1, 4, 4, 1}, {0, 2, 2, 0},}) || matrix.equals(new int[][]{{3, 4, 4, 3}, {3, 4, 4, 3}, {3, 0, 0, 3}, {3, 2, 2, 3}, {1, 1, 1, 1},}))
         this.matrix = matrix;
         this.initialmatrix=initialmatrix;
+    //}else{
+            //JFrame setFrame = new JFrame("请不要修改棋盘");
+            //setFrame.setSize(300, 200);
+            //setFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            //setFrame.setLayout(new GridLayout(1, 1)); // 使用网格布局
+        //}
     }
     public MapModel() {
         this.matrix = null;

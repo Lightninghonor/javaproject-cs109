@@ -97,16 +97,18 @@ public class LoginFrame extends JFrame {
                         user.setGuest(false);
                         //level = "easy";
                         MapModel mapModel = new MapModel(new int[][]{
-                    {2, 2, 3, 3},
-                    {1, 1, 3, 3},
-                    {1, 0, 4, 4},
-                    {1, 0, 4, 4},
+                    {3, 0, 3, 3},
+                    {3, 0, 3, 3},
+                    {1, 3, 2, 2},
+                    {1, 3, 4, 4},
+                    {1, 1, 4, 4},
 
             },new int[][]{
-                    {2, 2, 3, 3},
-                    {1, 1, 3, 3},
-                    {1, 0, 4, 4},
-                    {1, 0, 4, 4},
+                                {3, 0, 3, 3},
+                                {3, 0, 3, 3},
+                                {1, 1, 2, 2},
+                                {1, 3, 4, 4},
+                                {1, 3, 4, 4},
 
                     });
                     GameFrame gameFrame = new GameFrame(600, 450, mapModel,"easy");
@@ -119,16 +121,18 @@ public class LoginFrame extends JFrame {
                         User user = userManager.getUser(username.getText());
                         user.setGuest(false);
                         MapModel mapModel = new MapModel(new int[][]{
-                                {1, 4, 4, 3},
-                                {1, 4, 4, 3},
-                                {1, 0, 0, 1},
-                                {1, 0, 0, 1},
+                                {3, 3, 3, 3},
+                                {3, 3, 3, 3},
+                                {1, 4, 4, 1},
+                                {1, 4, 4, 1},
+                                {0, 2, 2, 0},
 
                         },new int[][]{
-                                {1, 4, 4, 3},
-                                {1, 4, 4, 3},
-                                {1, 0, 0, 1},
-                                {1, 0, 0, 1},
+                                {3, 3, 3, 3},
+                                {3, 3, 3, 3},
+                                {1, 4, 4, 1},
+                                {1, 4, 4, 1},
+                                {0, 2, 2, 0},
 
                         });
                         GameFrame gameFrame = new GameFrame(600, 450, mapModel,"mid");
@@ -164,17 +168,18 @@ public class LoginFrame extends JFrame {
                         User user = userManager.getUser(username.getText());
                         user.setGuest(false);
                         MapModel mapModel = new MapModel(new int[][]{
-                                {2, 2, 3, 3},
-                                {1, 1, 3, 3},
-                                {1, 0, 4, 4},
-                                {1, 0, 4, 4},
+                                {3, 4, 4, 3},
+                                {3, 4, 4, 3},
+                                {3, 0, 0, 3},
+                                {3, 2, 2, 3},
+                                {1, 1, 1, 1},
 
                         },new int[][]{
-                                {2, 2, 3, 3},
-                                {1, 1, 3, 3},
-                                {1, 0, 4, 4},
-                                {1, 0, 4, 4},
-
+                                {3, 4, 4, 3},
+                                {3, 4, 4, 3},
+                                {3, 0, 0, 3},
+                                {3, 2, 2, 3},
+                                {1, 1, 1, 1},
                         });
                         GameFrame gameFrame = new GameFrame(600, 450, mapModel,"ranking");
                         gameFrame.setUser(user); // 直接使用已更新的User对象
@@ -248,16 +253,18 @@ public class LoginFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 MapModel mapModel = new MapModel(new int[][]{
-                        {2, 2, 3, 3},
-                        {1, 1, 3, 3},
-                        {1, 0, 4, 4},
-                        {1, 0, 4, 4},
+                        {3, 0, 3, 3},
+                        {3, 0, 3, 3},
+                        {1, 1, 2, 2},
+                        {1, 3, 4, 4},
+                        {1, 3, 4, 4},
 
                 },new int[][]{
-                        {2, 2, 3, 3},
-                        {1, 1, 3, 3},
-                        {1, 0, 4, 4},
-                        {1, 0, 4, 4},
+                        {3, 0, 3, 3},
+                        {3, 0, 3, 3},
+                        {1, 1, 2, 2},
+                        {1, 3, 4, 4},
+                        {1, 3, 4, 4},
 
                 });
                 GameFrame gameFrame = new GameFrame(600, 450, mapModel,"easy");
@@ -289,7 +296,7 @@ public class LoginFrame extends JFrame {
                 JPanel timeLimitPanel = new JPanel();
                 timeLimitPanel.setLayout(new FlowLayout());
                 JLabel timeLimitLabel = new JLabel("TimeLimit:");
-                JButton btn1 = new JButton("120s");
+                JButton btn1 = new JButton("20s");
                 JButton btn2 = new JButton("180s");
                 JButton btn3 = new JButton("300s");
                 timeLimitPanel.add(timeLimitLabel);
@@ -319,7 +326,7 @@ public class LoginFrame extends JFrame {
                 setFrame.add(applyPanel);
 
                 // 按钮事件监听
-                btn1.addActionListener(e1 -> timeLimit = 120);
+                btn1.addActionListener(e1 -> timeLimit = 20);
                 btn2.addActionListener(e1 -> timeLimit = 180);
                 btn3.addActionListener(e1 -> timeLimit = 300);
                 applyBtn.addActionListener(e1 -> {
