@@ -231,8 +231,8 @@ public class GamePanel extends ListenerPanel1 {
     }
     // 移动后更新步数显示
     public void afterMove() {
-        steps++; // 直接操作内部变量
-        stepLabel.setText("Step: " + steps);
+//        steps++; // 直接操作内部变量
+//        stepLabel.setText("Step: " + steps);
         controller.checkVictoryCondition();
     }
 

@@ -51,6 +51,8 @@ public class GameController {
                     System.out.printf("%d ",view.getMapModel().getMatrix()[i][j]);
                 }
                 System.out.println();}
+            view.setSteps(view.getSteps() + 1);
+            view.stepLabel.setText("Step: " + view.getSteps());
             return true;
         }
         return false;
