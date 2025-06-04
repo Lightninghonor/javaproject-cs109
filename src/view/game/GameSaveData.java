@@ -12,12 +12,19 @@ public class GameSaveData implements Serializable {
     private int[][] boardState;
     private int steps;
     private User user;
+
+    public int getTime() {
+        return time;
+    }
+
+    private int time;
     private String checksum;
 
-    public GameSaveData(int[][] boardState, int steps, User user) {
+    public GameSaveData(int[][] boardState, int steps,int time, User user) {
         this.boardState = deepCopy(boardState);
         this.steps = steps;
         this.user = user;
+        this.time = time;
         this.checksum = computeChecksum();
     }
 

@@ -143,7 +143,7 @@ public class GamePanel extends ListenerPanel1 {
                     box.setLocation(j * GRID_SIZE + 2, i * GRID_SIZE + 2);
                     boxes.add(box);
                     this.add(box);
-                    System.out.printf("%d %d\n",i,j);
+                    //System.out.printf("%d %d\n",i,j);
                 }
             }
         }

@@ -30,6 +30,7 @@ public class GameFrame extends JFrame {
     private JButton upButton, downButton, leftButton, rightButton, undoButton,solveButton;
     private boolean isTimerRunning = false;
     public int seconds = 0;
+    private int savedTime = 0;
     public long startTime;
     public String mode;
     private int timeLimit = 300;
@@ -251,6 +252,7 @@ public class GameFrame extends JFrame {
             GameSaveData saveData = new GameSaveData(
                     gamePanel.getMapModel().getMatrix(),
                     currentSteps,
+                    seconds,
                     currentUser
             );
             oos.writeObject(saveData);
@@ -298,6 +300,10 @@ public class GameFrame extends JFrame {
             // 同步内部步数状态
             gamePanel.setSteps(saveData.getSteps());
             stepLabel.setText("Step: " + saveData.getSteps());
+            savedTime = saveData.getTime();
+            seconds = savedTime;
+            startTime = System.currentTimeMillis();
+            timerLabel.setText("Time: " + saveData.getTime() + "s");
             JOptionPane.showMessageDialog(this, "Game loaded successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
             for(int i=0;i<4;i++){
                 for(int j=0;j<4;j++){
@@ -330,9 +336,9 @@ public class GameFrame extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         long elapsedTime = (System.currentTimeMillis() - startTime) / 1000;
-                        seconds = (int) elapsedTime;
-                        timerLabel.setText("Time: " + elapsedTime + "s");
-                        if (elapsedTime % 10 == 0) {
+                        seconds = (int) elapsedTime + savedTime;
+                        timerLabel.setText("Time: " + seconds + "s");
+                        if (elapsedTime % 15 == 0 && elapsedTime!=0) {
                             saveGame();
                         }
                     }

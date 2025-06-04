@@ -123,16 +123,16 @@ public class LoginFrame extends JFrame {
                         MapModel mapModel = new MapModel(new int[][]{
                                 {3, 3, 3, 3},
                                 {3, 3, 3, 3},
-                                {1, 4, 4, 1},
-                                {1, 4, 4, 1},
-                                {0, 2, 2, 0},
+                                {4, 4, 1, 1},
+                                {4, 4, 2, 2},
+                                {1, 1, 0, 0},
 
                         },new int[][]{
                                 {3, 3, 3, 3},
                                 {3, 3, 3, 3},
-                                {1, 4, 4, 1},
-                                {1, 4, 4, 1},
-                                {0, 2, 2, 0},
+                                {4, 4, 1, 1},
+                                {4, 4, 2, 2},
+                                {1, 1, 0, 0},
 
                         });
                         GameFrame gameFrame = new GameFrame(600, 450, mapModel,"mid");
@@ -145,18 +145,18 @@ public class LoginFrame extends JFrame {
                         User user = userManager.getUser(username.getText());
                         user.setGuest(false);
                         MapModel mapModel = new MapModel(new int[][]{
-                                {3, 4, 4, 3},
-                                {3, 4, 4, 3},
-                                {3, 0, 0, 3},
-                                {3, 2, 2, 3},
-                                {1, 1, 1, 1},
+                                {3, 3, 3, 3},
+                                {3, 3, 3, 3},
+                                {1, 4, 4, 1},
+                                {1, 4, 4, 1},
+                                {0, 2, 2, 0},
 
                         },new int[][]{
-                                {3, 4, 4, 3},
-                                {3, 4, 4, 3},
-                                {3, 0, 0, 3},
-                                {3, 2, 2, 3},
-                                {1, 1, 1, 1},
+                                {3, 3, 3, 3},
+                                {3, 3, 3, 3},
+                                {1, 4, 4, 1},
+                                {1, 4, 4, 1},
+                                {0, 2, 2, 0},
 
                         });
                         GameFrame gameFrame = new GameFrame(600, 450, mapModel,"hard");
