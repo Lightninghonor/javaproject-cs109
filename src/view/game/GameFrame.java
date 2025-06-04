@@ -332,7 +332,7 @@ public class GameFrame extends JFrame {
                         long elapsedTime = (System.currentTimeMillis() - startTime) / 1000;
                         seconds = (int) elapsedTime;
                         timerLabel.setText("Time: " + elapsedTime + "s");
-                        if (elapsedTime % 60 == 0) {
+                        if (elapsedTime % 10 == 0) {
                             saveGame();
                         }
                     }
@@ -350,7 +350,7 @@ public class GameFrame extends JFrame {
                         seconds = (int) elapsedTime;
                         int secondsLeft = timeLimit - (int)elapsedTime;
                         timerLabel.setText("Time: " + secondsLeft + "s");
-                        if (elapsedTime % 60 == 0) {
+                        if (elapsedTime % 10 == 0) {
                             saveGame();
                         }
                         if(secondsLeft == 0){

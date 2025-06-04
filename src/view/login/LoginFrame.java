@@ -97,18 +97,18 @@ public class LoginFrame extends JFrame {
                         user.setGuest(false);
                         //level = "easy";
                         MapModel mapModel = new MapModel(new int[][]{
-                    {3, 0, 3, 3},
-                    {3, 0, 3, 3},
-                    {1, 3, 2, 2},
-                    {1, 3, 4, 4},
-                    {1, 1, 4, 4},
+                    {3, 3, 3, 3},
+                    {3, 3, 3, 3},
+                    {1, 1, 2, 2},
+                    {1, 0, 4, 4},
+                    {1, 0, 4, 4},
 
             },new int[][]{
-                                {3, 0, 3, 3},
-                                {3, 0, 3, 3},
+                                {3, 3, 3, 3},
+                                {3, 3, 3, 3},
                                 {1, 1, 2, 2},
-                                {1, 3, 4, 4},
-                                {1, 3, 4, 4},
+                                {1, 0, 4, 4},
+                                {1, 0, 4, 4},
 
                     });
                     GameFrame gameFrame = new GameFrame(600, 450, mapModel,"easy");
@@ -168,18 +168,18 @@ public class LoginFrame extends JFrame {
                         User user = userManager.getUser(username.getText());
                         user.setGuest(false);
                         MapModel mapModel = new MapModel(new int[][]{
-                                {3, 4, 4, 3},
-                                {3, 4, 4, 3},
-                                {3, 0, 0, 3},
                                 {3, 2, 2, 3},
-                                {1, 1, 1, 1},
+                                {3, 1, 1, 3},
+                                {3, 4, 4, 3},
+                                {3, 4, 4, 3},
+                                {1, 0, 0, 1},
 
                         },new int[][]{
-                                {3, 4, 4, 3},
-                                {3, 4, 4, 3},
-                                {3, 0, 0, 3},
                                 {3, 2, 2, 3},
-                                {1, 1, 1, 1},
+                                {3, 1, 1, 3},
+                                {3, 4, 4, 3},
+                                {3, 4, 4, 3},
+                                {1, 0, 0, 1},
                         });
                         GameFrame gameFrame = new GameFrame(600, 450, mapModel,"ranking");
                         gameFrame.setUser(user); // 直接使用已更新的User对象

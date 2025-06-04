@@ -19,10 +19,10 @@ public class MapModel {
         int newCol=col+direction.getCol();
         int id=matrix[row][col];
         boolean isValid=true;
-        System.out.printf("%d %d\n",width,height);
+//        System.out.printf("%d %d\n",width,height);
         if(newRow<0||newRow+height>matrix.length||newCol<0||newCol+width>matrix[0].length){
             isValid=false;
-            System.out.printf("false1 %d %d %d %d\n",newRow,newCol,height,width);
+//            System.out.printf("false1 %d %d %d %d\n",newRow,newCol,height,width);
         }else{
             for (int i=0;i<height;i++){
                 for (int j=0;j<width;j++){
@@ -34,13 +34,13 @@ public class MapModel {
                     if(matrix[newRow+i][newCol+j]!=0){
 //                    System.out.println("false");
                         isValid=false;
-                        System.out.printf("false2\n");
-                        for(int i1=0;i1<4;i1++){
-            for(int j1=0;j1<4;j1++){
-                System.out.printf("%d ",matrix[i1][j1]);
-            }
-            System.out.println();
-        }
+//                        System.out.printf("false2\n");
+//                        for(int i1=0;i1<4;i1++){
+//            for(int j1=0;j1<4;j1++){
+//                System.out.printf("%d ",matrix[i1][j1]);
+//            }
+//            System.out.println();
+//        }
                         break;
                     }
                 }
@@ -145,7 +145,7 @@ public class MapModel {
 
     // 启发式函数：曼哈顿距离
     private int heuristic(int[][] board) {
-        int targetRow = 2;
+        int targetRow = 3;
         int targetCol = 1;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
@@ -163,7 +163,7 @@ public class MapModel {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 if (board[i][j] == 4) {
-                    if (i == 2 && j == 1) {
+                    if (i == 3 && j == 1) {
                         return true;
                     }else{
                         return false;

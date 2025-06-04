@@ -46,11 +46,11 @@ public class GameController {
             }
             view.updateBoxPosition(row, col, width, height, direction);
             //测试用
-            for(int i=0;i<4;i++){
-                for(int j=0;j<4;j++){
-                    System.out.printf("%d ",view.getMapModel().getMatrix()[i][j]);
-                }
-                System.out.println();}
+//            for(int i=0;i<4;i++){
+//                for(int j=0;j<4;j++){
+//                    System.out.printf("%d ",view.getMapModel().getMatrix()[i][j]);
+//                }
+//                System.out.println();}
             view.setSteps(view.getSteps() + 1);
             view.stepLabel.setText("Step: " + view.getSteps());
             return true;
@@ -120,7 +120,10 @@ public class GameController {
         if (caoCaoAtExit) {
             JOptionPane.showMessageDialog(view, "Victory!\nMoves: " + view.getSteps() + "\nTime: " + frame.seconds + "s", "Success", JOptionPane.INFORMATION_MESSAGE);
             frame.stopTimer();  // 停止计时
-            if(frame.mode == "ranking")savePlayerRanking(frame.getName(), view.getSteps(), frame.seconds);
+            if(frame.mode == "ranking"){
+                savePlayerRanking(frame.getName(), view.getSteps(), frame.seconds);
+                System.out.println("rank");
+            }
         }
     }
     // 重新开始游戏时重置计时器的代码
